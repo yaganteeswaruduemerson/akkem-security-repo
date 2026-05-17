@@ -1,0 +1,16 @@
+{
+  "name": "Functional - Input Exceeds Maximum Length",
+  "description": "Validates that CustomerServiceCalculationAgent.process_user_query returns an error QueryResponse when input exceeds maximum allowed length.",
+  "test_type": "functional",
+  "input": "number1 and number2 are strings each longer than 50,000 characters; mock ErrorHandler.handle_error to return a structured error message.",
+  "output": "QueryResponse with success=False, result=None, error containing error message, fixing_tip present.",
+  "success_criteria": [
+    "response.success is False",
+    "response.result is None",
+    "response.error is not None",
+    "response.fixing_tip is not None"
+  ],
+  "error_scenarios": [
+    "ErrorHandler.handle_error raises exception"
+  ]
+}
