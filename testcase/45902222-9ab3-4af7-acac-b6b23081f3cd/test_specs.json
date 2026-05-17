@@ -1,0 +1,17 @@
+{
+  "name": "Integration - POST /query with Valid Numbers",
+  "description": "Tests the /query endpoint with valid numbers, expecting a successful addition response.",
+  "test_type": "integration",
+  "input": "POST /query with JSON: {'number1': '10', 'number2': '15'}; mock LLMService.generate_response to return a structured response.",
+  "output": "HTTP 200 response with QueryResponse: success=True, result containing structured addition response.",
+  "success_criteria": [
+    "response.status_code == 200",
+    "response.json()['success'] is True",
+    "response.json()['result'] is not None",
+    "response.json()['error'] is None"
+  ],
+  "error_scenarios": [
+    "LLMService.generate_response raises exception",
+    "CalculationService.add_numbers raises exception"
+  ]
+}
