@@ -1,0 +1,17 @@
+{
+  "name": "Functional - Invalid Input Type Handling",
+  "description": "Validates that CustomerServiceCalculationAgent.process_user_query returns an error QueryResponse when provided with invalid input types (non-numeric strings).",
+  "test_type": "functional",
+  "input": "number1='abc', number2='xyz'; mock ErrorHandler.handle_error to return a structured error message.",
+  "output": "QueryResponse with success=False, result=None, error containing error message, fixing_tip with guidance, tool_calls_made=None.",
+  "success_criteria": [
+    "response.success is False",
+    "response.result is None",
+    "response.error is not None",
+    "response.fixing_tip is not None",
+    "response.tool_calls_made is None"
+  ],
+  "error_scenarios": [
+    "ErrorHandler.handle_error raises exception"
+  ]
+}
