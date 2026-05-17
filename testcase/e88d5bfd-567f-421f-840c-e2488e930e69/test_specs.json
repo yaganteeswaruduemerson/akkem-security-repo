@@ -1,0 +1,17 @@
+{
+  "name": "Integration - POST /query with Empty Input",
+  "description": "Tests the /query endpoint with empty strings for number1 and number2, expecting an error response.",
+  "test_type": "integration",
+  "input": "POST /query with JSON: {'number1': '', 'number2': ''}; mock ErrorHandler.handle_error to return a structured error message.",
+  "output": "HTTP 200 response with QueryResponse: success=False, error containing error message, fixing_tip present.",
+  "success_criteria": [
+    "response.status_code == 200",
+    "response.json()['success'] is False",
+    "response.json()['result'] is None",
+    "response.json()['error'] is not None",
+    "response.json()['fixing_tip'] is not None"
+  ],
+  "error_scenarios": [
+    "ErrorHandler.handle_error raises exception"
+  ]
+}
