@@ -1,0 +1,18 @@
+{
+  "name": "Functional - Successful Addition with Valid Numbers",
+  "description": "Validates that CustomerServiceCalculationAgent.process_user_query returns a successful QueryResponse when provided with two valid numbers.",
+  "test_type": "functional",
+  "input": "number1='5', number2='7' (as strings); mock LLMService.generate_response to return a structured response.",
+  "output": "QueryResponse with success=True, result containing structured addition response, error=None, fixing_tip=None, tool_calls_made=None.",
+  "success_criteria": [
+    "response.success is True",
+    "response.result is not None",
+    "response.error is None",
+    "response.fixing_tip is None",
+    "response.tool_calls_made is None"
+  ],
+  "error_scenarios": [
+    "LLMService.generate_response raises exception",
+    "CalculationService.add_numbers raises exception"
+  ]
+}
